@@ -1,0 +1,209 @@
+body {
+  font-family: "Arial", "Meiryo", sans-serif;
+  text-align: center;
+}
+/* bodyのフォント種類を、「"Arial", "Meiryo", sans-serif」 にします。
+ */
+
+html {
+  font-size: 20px;
+}
+
+/*
+font-sizeは文字の大きさを指定するプロパティ。
+
+今回はhtml要素のフォントサイズを20pxに設定している。
+htmlに指定すると、ページ全体の文字サイズの基準になる。
+
+特にremという単位を使う場合、htmlのfont-sizeが基準になる。
+
+例）
+html {
+  font-size: 20px;
+}
+
+1rem = 20px
+2rem = 40px
+※pxは固定サイズを指定する単位。
+*/
+
+.blue {
+  color: skyblue;
+}
+
+/*
+class="blue"が付いている要素の文字色をスカイブルーにする。
+「.class名」で指定すると、そのclassが付いているすべての要素に適用される。
+
+例：
+<span class="blue">M</span>
+<h2 class="blue">生年月日</h2>
+<h2 class="blue">趣味</h2>
+
+すべてスカイブルーになる。
+*/
+
+.pink {
+  color: rgb(255, 192, 203);
+}
+
+/*
+class="pink"が付いている要素の文字色をrgbで指定したピンクにする。
+rgbは色を指定する方法の1つ。
+
+rgb(255,192,203)→ 赤255、緑192、青203の組み合わせでピンクになる。
+
+例：
+<span class="pink">P</span>
+<h2 class="pink">名前</h2>
+<h2 class="pink">血液型</h2>
+すべてピンクになる。
+*/
+
+/*
+【セレクタの範囲指定の違い】
+
+.blue　→ class="blue"が付いているものすべてに適用。
+h1 .blue　→ h1タグの中にあるclass="blue"だけに適用。
+
+例：
+<h1>
+  <span class="blue">M</span>
+</h1>
+
+↑ h1 .blue が適用される。
+
+<h2 class="blue">生年月日</h2>
+
+↑ h1の中ではないため、
+h1 .blueでは適用されない。
+
+
+どの範囲にデザインを適用したいかによって、
+セレクタの書き方を変える。
+*/
+
+h1 {
+  font-family: "Josefin Sans", sans-serif;
+  /*
+  h1のフォントをGoogle Fontsの「Josefin Sans」に指定する。
+　HTMLの<head>内でGoogle Fontsを読み込んでいるため、CSSでは使用する場所を指定する。
+"Josefin Sans"が使えない場合は、総称フォントのsans-serifを使用する。
+sans-serifはゴシック体の仲間。
+  */
+
+
+  font-size: 2rem;
+  /*
+  h1の文字サイズを指定。remはhtml要素のfont-sizeを基準にする単位。
+
+  例：
+  html {
+    font-size: 20px;
+  }
+
+  の場合、
+
+  1rem = 20px
+  2rem = 40px
+
+  となる。
+  */
+
+
+  letter-spacing: 1.2em;
+  /*
+  letter-spacingは文字と文字の間隔（字間）を指定する。
+　emは、その要素自身の文字サイズを基準にする単位。
+
+  今回はh1の文字サイズが40pxの場合、
+  1em = 40px
+  1.2em = 48px
+　となり、文字サイズに対して1.2倍の字間になる。
+
+
+  remとの違い：
+
+  rem
+  → html要素のfont-sizeが基準
+
+  em
+  → 要素自身（または親要素）のfont-sizeが基準
+
+  */
+
+
+  text-shadow: 2px 2px 5px gray;
+  /*
+  text-shadowは文字に影を付ける。
+
+  書き方：text-shadow: 横方向 縦方向 ぼかし 色;
+
+  今回の場合：
+
+  2px→ 右方向へのずれ
+  2px→ 下方向へのずれ
+  5px→ 影のぼかし
+  gray→ 影の色
+  */
+
+  border-bottom: 3px solid rgb(115, 115, 114);
+  /*
+  border-bottomは要素の下側に線を付ける。
+
+  書き方：  border-bottom: 太さ 種類 色;
+
+  今回の場合：
+  3px→ 線の太さ
+  solid→ 実線
+  rgb(115,115,114)→ 線の色
+
+  text-decorationではなくborder-bottomを使う理由：
+
+  text-decoration→ 文字そのものへの装飾
+  border-bottom→ 要素（h1）の下側への線
+
+  今回は見出し全体の下に線を付けるためborder-bottomを使用する。
+  */
+}
+
+#basic p {
+  font-weight: bold;
+}
+
+/*
+子孫要素を指定する書き方。
+#basic p     意味：id="basic"の中にあるp要素すべて
+
+
+今回の場合：
+
+<div id="basic">
+
+  <p>侍 太郎</p>
+  <p>1990年1月1日</p>
+  <p>O型</p>
+
+</div>
+
+この3つのpだけが太字になる。一方で、basicの外にあるp要素には適用されない。
+
+書き方：
+
+親要素 子要素 {
+  設定
+}
+
+例：
+
+#basic p
+→ id="basic"の中にあるp要素
+
+h1 .blue
+→ h1の中にあるclass="blue"
+
+
+※スペースありは「中にある」という意味
+例：
+
+*/
