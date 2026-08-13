@@ -1,0 +1,212 @@
+#top {
+    width: 800px;
+    /*
+    #topの横幅を800pxに指定。
+    */
+
+    background-color: #dcc9f4;
+    /*
+    #topの背景色を指定。
+    */
+
+    margin: 20px auto;
+    /*
+    margin: 上下 左右
+
+    上下：20px
+    左右：auto
+
+    widthが指定されたブロック要素で
+    左右のmarginをautoにすると、
+    要素そのものを画面中央に配置できる。
+    */
+
+    text-align: center;
+    /*
+    text-align:center;
+
+    基本的には、文字などのインライン内容を中央揃えする。
+
+    今回は.top-childを
+    display:inline-block;
+    にしているため、
+
+    ① .top-child（ピンクの箱）の並びを中央に寄せる
+    ② .top-childの中の文字も中央寄せになる
+
+    という2つの結果が起こる。
+
+    また、text-alignは子要素に継承される。
+
+    そのため、.top-child自身に
+    text-align:center;
+    と書かなくても文字が中央になる。
+    */
+}
+
+.top-child {
+    width: 20%;
+    /*
+    親要素（#top）の幅の20%にする。
+
+    #topが800pxの場合
+    800px × 20% = 160px
+    */
+
+    background-color: #ffd9df;
+    /*
+    p要素の背景色を指定。
+    */
+
+    display: inline-block;
+    /*
+    p要素は初期状態ではblock要素なので、
+    指定しないと縦に並ぶ。
+
+        p
+        p
+        p
+
+    display:inline-block;を指定すると、
+    p要素を横並びにできる。
+
+        p  p  p
+
+    また、inline-blockなのでwidthも指定できる。
+    */
+
+    /*
+    【文字を左寄せにしたい場合】
+
+    親の#topにtext-align:center;があるため、
+    その指定が子要素にも継承される。
+
+    文字だけ左寄せに戻したい場合は、
+    .top-childで上書きする。
+
+    text-align: left;
+    */
+}
+
+#middle {
+    position: relative;
+    /*
+    親要素にposition: relativeを指定。
+
+    このあと子要素にposition: absoluteを指定すると、
+    子要素はこの#middleの左上を基準にして配置される。
+
+    【今回の重要ポイント】
+    「親を基準に子を配置したい」
+    ↓
+    親：position: relative;
+    子：position: absolute;
+    */
+
+    width: 800px;
+    /* #middleの横幅を800px */
+
+    height: 800px;
+    /* #middleの高さを800px */
+
+    margin: 20px auto;
+    /*
+    上下20px、左右auto。
+
+    widthを指定したブロック要素なので、
+    左右autoで画面中央に配置できる。
+
+    topの要素とのmarginの相殺が起こるが、
+    今回は図形同士の上下間隔が20pxになるように調整する。
+    */
+
+    background-color: #ffd9df;
+    /* #middleの背景色 */
+}
+
+
+/*
+3つの子要素に共通するCSSをまとめる。
+
+同じデザインの要素が複数ある場合は、
+カンマで区切って共通指定できる。
+*/
+
+#middle-child01,
+#middle-child02,
+#middle-child03 {
+    position: absolute;
+    /*
+    親#middleを基準に位置を指定する。
+
+    position: absoluteにすると、
+    通常の配置の流れから外れて、
+    top・leftなどで位置を指定できる。
+    */
+
+    width: 200px;
+    /* 子要素の横幅 */
+
+    height: 200px;
+    /* 子要素の高さ */
+
+    background-color: #87ceeb;
+    /* 子要素の背景色 */
+}
+
+
+/*
+#middleの左上を基準に
+上から100px、左から100px
+*/
+
+#middle-child01 {
+    top: 100px;
+    left: 100px;
+}
+
+
+/*
+#middleの左上を基準に
+上から300px、左から300px
+*/
+
+#middle-child02 {
+    top: 300px;
+    left: 300px;
+}
+
+
+/*
+#middleの左上を基準に
+上から500px、左から500px
+*/
+
+#middle-child03 {
+    top: 500px;
+    left: 500px;
+}
+
+#bottom {
+     width: 800px;
+     height: 300px;
+     margin: 20px auto;
+     background-color: #87ceeb;
+}
+
+#bottom-child01,
+#bottom-child02,
+#bottom-child03{
+ width: 400px;
+ height: 100px;
+ background-color: #e5dcf0;   
+}
+#bottom-child02 {
+    position: relative;
+    left: 200px;
+}
+
+#bottom-child03 {
+    position: relative;
+    left: 400px;
+}
