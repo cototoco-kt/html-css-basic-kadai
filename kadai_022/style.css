@@ -1,0 +1,111 @@
+h1,p,body{
+   margin: 0 0 0 0  
+}
+
+p,a{font-size: 20px;}
+
+header {
+    margin-bottom: 20px;
+    background-color: rgb(244, 79, 79);
+    text-align: center;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+main{
+    padding: 10px;
+}
+
+#parent{
+    display: flex;
+    justify-content: space-around;  
+}
+
+.contents {
+    /* 要素を3pxの実線で囲む */
+    border: 3px solid rgb(238, 204, 204);
+
+    /* Flexアイテムの初期サイズを親の25%にする */
+    flex-basis: 25%;
+
+    /* 要素の外側：上下20px、左右0 */
+    margin: 20px 0;
+
+    /* 要素の内側：上下10px、左右15px */
+    padding: 10px 15px;
+
+    /* 中の文字などを中央揃え */
+    text-align: center;
+}
+
+h2 {
+    font-size: 25px;
+
+    /* h2の下に3pxの点線を引く */
+    border-bottom: 3px dotted rgb(236, 122, 122);
+}
+
+h2::before {
+    /* h2の前に「●」を表示 */
+    content: "●";
+
+    /* 「●」の色 */
+    color: rgb(239, 111, 139);
+}
+
+/* class="contents"の中にある2番目のp要素の
+   最初の1文字を指定 */
+.contents p:nth-of-type(2)::first-letter {
+    font-weight: bold;
+    color: rgb(97, 206, 249);
+}
+.contents img{
+    width: 70%;
+    margin: 10px 0px
+}
+
+footer {
+    background-color: rgb(244, 79, 79);
+    text-align: center;
+}
+/* text-align
+→ 要素内の文字などの水平方向の揃え方を指定
+
+   left   → 左揃え
+   center → 中央揃え
+   right  → 右揃え */
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+/* 訪問済みリンク */
+a:visited {
+    color: rgb(193, 234, 251);
+}
+
+/* マウスカーソルが乗ったとき */
+a:hover {
+    color: rgb(245, 178, 168);
+}
+
+/* 画面幅が768px以下のときのスタイル */
+@media screen and (max-width: 768px) {
+
+    /* h2の文字サイズを30pxにする */
+    h2 {
+        font-size: 30px;
+    }
+
+    /* pの文字サイズを25pxにする */
+    p {
+        font-size: 25px;
+    }
+
+    /* #parent内のFlexアイテムを縦方向に並べる */
+    #parent {
+        flex-direction: column;
+    }
+}
